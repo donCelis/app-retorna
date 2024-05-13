@@ -5,6 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
 import { sizes } from "@/constants/metrics";
 import { Ionicons } from "@expo/vector-icons";
+import { hp, wp } from "@/utils/dimensions";
 
 export default function RootScreen() {
   return (
@@ -47,13 +48,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bgImage: {
-    width: "100%",
-    height: "100%",
+    width: wp(100),
+    height: hp(100),
     position: "absolute",
   },
   gradient: {
-    width: "100%",
-    height: "65%",
+    width: wp(100),
+    height: hp(65),
     bottom: 0,
     position: "absolute",
   },
@@ -62,10 +63,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
     gap: sizes.level_4,
-    padding: sizes.level_7,
+    padding: sizes.level_8,
   },
   title: {
-    fontSize: sizes.level_6,
+    fontSize: sizes.level_8,
     color: "black",
     fontWeight: "bold",
   },
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     padding: sizes.level_4,
     paddingHorizontal: sizes.level_8,
-    borderRadius: sizes.level_4,
+    borderRadius: sizes.level_5,
     borderCurve: "continuous",
   },
   startText: {
