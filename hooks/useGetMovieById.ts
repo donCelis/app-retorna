@@ -8,5 +8,7 @@ export const useGetMovieById = (id: string | undefined) => {
     refetchOnMount: false,
   });
 
-  return { data, isLoading };
+  const hasMovie = !!Object.keys(data?.movie ?? {}).length;
+
+  return { movie: data?.movie ?? undefined, isLoading, hasMovie };
 };
