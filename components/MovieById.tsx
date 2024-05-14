@@ -10,7 +10,7 @@ import {
   sizes,
 } from "@/constants/metrics";
 import { StartRating } from "./StartRating";
-import { getDateMonth } from "@/utils/formatDate";
+import { getYear } from "date-fns";
 
 const stringToArray = (input: string | string[]): string[] => {
   return typeof input === "string" ? [input] : input;
@@ -58,7 +58,7 @@ export const MovieById = ({ movie }: { movie: Movie | undefined }) => {
       >
         <ThemedText>
           <ThemedText type="defaultSemiBold">Year: </ThemedText>
-          {getDateMonth(movie.released_on)}
+          {getYear(movie.released_on)}
         </ThemedText>
         <ThemedText>|</ThemedText>
         <ThemedText>
