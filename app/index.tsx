@@ -1,4 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, Pressable, StyleSheet, View } from "react-native";
 
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -6,6 +6,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import { sizes } from "@/constants/metrics";
 import { Ionicons } from "@expo/vector-icons";
 import { hp, wp } from "@/utils/dimensions";
+import { ThemedText } from "@/components/ThemedText";
+import { Colors } from "@/constants/Colors";
 
 export default function RootScreen() {
   return (
@@ -29,12 +31,20 @@ export default function RootScreen() {
           end={{ x: 0.5, y: 0.8 }}
         />
         <View style={styles.contentContainer}>
-          <Text style={styles.title}>Wookie Movies</Text>
+          <ThemedText type="title" darkColor="black">
+            Wookie Movies
+          </ThemedText>
           <Pressable
             onPress={() => router.push("home")}
             style={styles.startButton}
           >
-            <Text style={styles.startText}>Start Explore</Text>
+            <ThemedText
+              type="defaultSemiBold"
+              lightColor="white"
+              style={styles.startText}
+            >
+              Start Explore
+            </ThemedText>
             <Ionicons name="play" size={sizes.level_4} color={"white"} />
           </Pressable>
         </View>
@@ -64,26 +74,19 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     gap: sizes.level_4,
     padding: sizes.level_8,
-  },
-  title: {
-    fontSize: sizes.level_8,
-    color: "black",
-    fontWeight: "bold",
+    paddingBottom: sizes.level_12,
   },
   startButton: {
     flexDirection: "row",
     alignItems: "center",
     gap: sizes.level_3,
-    backgroundColor: "black",
+    backgroundColor: Colors.dark.primary,
     padding: sizes.level_4,
     paddingHorizontal: sizes.level_8,
     borderRadius: sizes.level_5,
     borderCurve: "continuous",
   },
   startText: {
-    color: "white",
-    fontSize: sizes.level_4,
-    fontWeight: "medium",
     letterSpacing: 1,
   },
 });
