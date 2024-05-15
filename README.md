@@ -11,8 +11,8 @@ Prueba técnica para [Retorna](https://www.retorna.app/), basada en la creación
 Este proyecto ha sido desarrollado en React Native, por lo que primero deberás instalar las dependencias correspondientes.
 
 ```
-git clone http://retorna-7-nbaquc@git.codesubmit.io/retorna-7/wookie-movies-qvermb
-cd wookie-movies-qvermb
+git clone https://github.com/donCelis/app-retorna.git
+cd app-retorna
 npm i -E
 ```
 
@@ -36,6 +36,7 @@ Si necesitas saber los demás comandos de npm puedes consultar el archivo: `pack
 2. Se recomienda probar la app en ios con el emulador de expo
 3. Todos los recursos usados en este proyecto son con fines sin ánimo de lucro.
 4. La imagen corporativa de Retorna ha sido usada solo con fines demostrativos.
+5. En la raíz del proyecto se encuentra una apk para pruebas llamado: assignment.apk 
 
 ## Features
 
