@@ -1,5 +1,7 @@
 # 🖖 Prueba técnica frontend - Retorna
 
+![preview design](Designs/views.jpg "mobile-preview")
+
 This is a [React Native App](https://reactnative.dev/) project bootstrapped with [`npx create-expo-app AwesomeProject`](https://reactnative.dev/docs/environment-setup).
 
 Prueba técnica para [Retorna](https://www.retorna.app/), basada en la creación de una aplicación móvil de películas.
