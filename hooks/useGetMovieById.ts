@@ -5,7 +5,6 @@ export const useGetMovieById = (id: string | undefined) => {
   const { data, isLoading } = useQuery({
     queryKey: ["movie", id],
     queryFn: () => getMovieById(id),
-    refetchOnMount: false,
   });
 
   const hasMovie = !!Object.keys(data?.movie ?? {}).length;

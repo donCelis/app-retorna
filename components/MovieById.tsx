@@ -11,6 +11,7 @@ import {
 } from "@/constants/metrics";
 import { StartRating } from "./StartRating";
 import { getYear } from "date-fns";
+import { theme } from "@/constants/Colors";
 
 const stringToArray = (input: string | string[]): string[] => {
   return typeof input === "string" ? [input] : input;
@@ -21,7 +22,7 @@ export const MovieById = ({ movie }: { movie: Movie | undefined }) => {
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
+      headerBackgroundColor={theme.colors.neutral(0.8)}
       headerImage={
         <Image
           source={{ uri: movie.backdrop }}
@@ -33,14 +34,12 @@ export const MovieById = ({ movie }: { movie: Movie | undefined }) => {
     >
       <View style={styles.posterContainer}>
         <Image
-          style={{ width: "50%", height: HEIGHT_IMAGE_CARD }}
+          style={styles.posterImage}
           source={{ uri: movie.poster }}
           contentFit="cover"
           transition={ANIMATION_IMAGE_DEFAULT}
         />
-        <View
-          style={{ flex: 1, gap: sizes.level_2, paddingBottom: sizes.level_4 }}
-        >
+        <View style={styles.infoHeader}>
           <ThemedText type="subtitle">{movie.title}</ThemedText>
           <StartRating rating={movie.imdb_rating} />
           <ThemedText>
@@ -49,13 +48,7 @@ export const MovieById = ({ movie }: { movie: Movie | undefined }) => {
           </ThemedText>
         </View>
       </View>
-      <ThemedView
-        style={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: sizes.level_4,
-        }}
-      >
+      <ThemedView style={{ ...styles.section, gap: sizes.level_4 }}>
         <ThemedText>
           <ThemedText type="defaultSemiBold">Year: </ThemedText>
           {getYear(movie.released_on)}
@@ -66,29 +59,16 @@ export const MovieById = ({ movie }: { movie: Movie | undefined }) => {
           {movie.length}
         </ThemedText>
       </ThemedView>
-      <ThemedView
-        style={{
-          flexDirection: "row",
-          flexWrap: "wrap",
-          gap: sizes.level_2,
-        }}
-      >
+      <ThemedView style={styles.section}>
         {movie.genres.map((genre, key) => (
-          <View
-            style={{
-              flexDirection: "row",
-              flexWrap: "wrap",
-              gap: sizes.level_2,
-            }}
-            key={`genre-${key}`}
-          >
+          <View style={styles.section} key={`genre-${key}`}>
             <ThemedText>{genre}</ThemedText>
             {key < movie.genres.length - 1 && <ThemedText>-</ThemedText>}
           </View>
         ))}
       </ThemedView>
       <ThemedView style={{ flexDirection: "row" }}>
-        <ThemedView style={{ flexBasis: "50%", flex: 1 }}>
+        <ThemedView style={styles["w-50"]}>
           <ThemedText type="defaultSemiBold">Cast:</ThemedText>
           {movie.cast.map((character, key) => (
             <View key={`character-${key}`}>
@@ -96,7 +76,7 @@ export const MovieById = ({ movie }: { movie: Movie | undefined }) => {
             </View>
           ))}
         </ThemedView>
-        <ThemedView style={{ flexBasis: "50%", flex: 1 }}>
+        <ThemedView style={styles["w-50"]}>
           <ThemedText type="defaultSemiBold">Directors:</ThemedText>
           {stringToArray(movie.director).map((director, key) => (
             <View key={`director-${key}`}>
@@ -120,12 +100,16 @@ const styles = StyleSheet.create({
     gap: sizes.level_4,
     marginTop: -HEIGHT_IMAGE_CARD / 2,
   },
-  stepContainer: {
-    gap: 12,
-    marginBottom: sizes.level_2,
+  posterImage: { width: "50%", height: HEIGHT_IMAGE_CARD },
+  infoHeader: { flex: 1, gap: sizes.level_2, paddingBottom: sizes.level_4 },
+  section: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: sizes.level_2,
   },
   backdrop: {
     width: "100%",
     height: "100%",
   },
+  "w-50": { flexBasis: "50%", flex: 1 },
 });

@@ -7,7 +7,7 @@ import { sizes } from "@/constants/metrics";
 import { Ionicons } from "@expo/vector-icons";
 import { hp, wp } from "@/utils/dimensions";
 import { ThemedText } from "@/components/ThemedText";
-import { Colors } from "@/constants/Colors";
+import { Colors, theme } from "@/constants/Colors";
 
 export default function RootScreen() {
   return (
@@ -31,18 +31,12 @@ export default function RootScreen() {
           end={{ x: 0.5, y: 0.8 }}
         />
         <View style={styles.contentContainer}>
-          <ThemedText type="title" darkColor="black">
-            Wookie Movies
-          </ThemedText>
+          <ThemedText type="title">Wookie Movies</ThemedText>
           <Pressable
             onPress={() => router.push("home")}
             style={styles.startButton}
           >
-            <ThemedText
-              type="defaultSemiBold"
-              lightColor="white"
-              style={styles.startText}
-            >
+            <ThemedText type="defaultSemiBold" style={styles.startText}>
               Start Explore
             </ThemedText>
             <Ionicons name="play" size={sizes.level_4} color={"white"} />
@@ -88,5 +82,6 @@ const styles = StyleSheet.create({
   },
   startText: {
     letterSpacing: 1,
+    color: theme.colors.white,
   },
 });

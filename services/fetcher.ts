@@ -1,6 +1,6 @@
 import { Movie } from "@/types/movie";
 import axios from "@/utils/axios";
-import { AxiosError } from "axios";
+import { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 type GetMovies = {
   success: boolean;
@@ -26,7 +26,9 @@ type GetMovie = {
   msg?: string;
 };
 
-export const getMovieById = async (id: string | undefined): Promise<GetMovie> => {
+export const getMovieById = async (
+  id: string | undefined
+): Promise<GetMovie> => {
   try {
     const res = await axios.get(`/movies/${id ?? ""}`);
     const { data } = res;
@@ -39,5 +41,19 @@ export const getMovieById = async (id: string | undefined): Promise<GetMovie> =>
       movie: {} as GetMovie["movie"],
       msg: axiosError.message,
     };
+  }
+};
+
+export const getMoviesQuery = async (query: string) => {
+  try {
+    const res = await axios.get("/movies", {
+      params: { q: query },
+    });
+    const { data } = res;
+    return { success: true, movies: data.movies as Movie[] };
+  } catch (error) {
+    const axiosError = error as AxiosError;
+    console.log("got error: ", axiosError.message);
+    return { success: false, movies: [], msg: axiosError.message };
   }
 };
