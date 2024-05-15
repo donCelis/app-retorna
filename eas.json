@@ -1,0 +1,23 @@
+{
+  "cli": {
+    "version": ">= 9.0.5"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://wookie.codesubmit.io",
+        "EXPO_PUBLIC_AUTH": "Bearer Wookie2019"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
