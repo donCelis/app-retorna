@@ -1,6 +1,6 @@
 import { Movie } from "@/types/movie";
 import axios from "@/utils/axios";
-import { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import { AxiosError } from "axios";
 
 type GetMovies = {
   success: boolean;

@@ -2,12 +2,12 @@ import { StyleSheet, View } from "react-native";
 
 import { ScrollView } from "react-native-gesture-handler";
 import { useGetMovies } from "@/hooks/useGetMovies";
-import { GenresTabs } from "@/components/GenresTabs";
 import { useState } from "react";
-import { MoviesGrid } from "@/components/MoviesGrid";
 import { theme } from "@/constants/Colors";
-import { ThemedText } from "@/components/ThemedText";
+import { ThemedText } from "@/components/Common/ThemedText";
 import { sizes } from "@/constants/metrics";
+import { MoviesGrid } from "@/components/Home/MoviesGrid";
+import { GenresTabs } from "@/components/Home/GenresTabs";
 
 export default function HomeScreen() {
   const { isLoading, hasMovies, moviesByGenre } = useGetMovies();

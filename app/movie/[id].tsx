@@ -1,4 +1,4 @@
-import { MovieById } from "@/components/MovieById";
+import { MovieById } from "@/components/MovieById/MovieById";
 import { theme } from "@/constants/Colors";
 import { useGetMovieById } from "@/hooks/useGetMovieById";
 import { useLocalSearchParams } from "expo-router";

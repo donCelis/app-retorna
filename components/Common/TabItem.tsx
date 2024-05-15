@@ -1,7 +1,7 @@
 import { sizes } from "@/constants/metrics";
 import { Pressable, StyleSheet } from "react-native";
-import { ThemedText } from "./ThemedText";
 import { theme } from "@/constants/Colors";
+import { ThemedText } from "./ThemedText";
 
 export const TabItem = ({
   item,

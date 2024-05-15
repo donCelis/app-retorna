@@ -1,7 +1,4 @@
 import { StyleSheet, View } from "react-native";
-import ParallaxScrollView from "./ParallaxScrollView";
-import { ThemedView } from "./ThemedView";
-import { ThemedText } from "./ThemedText";
 import { Movie } from "@/types/movie";
 import { Image } from "expo-image";
 import {
@@ -9,9 +6,12 @@ import {
   HEIGHT_IMAGE_CARD,
   sizes,
 } from "@/constants/metrics";
-import { StartRating } from "./StartRating";
 import { getYear } from "date-fns";
 import { theme } from "@/constants/Colors";
+import ParallaxScrollView from "../ParallaxScrollView";
+import { ThemedText } from "../Common/ThemedText";
+import { ThemedView } from "../Common/ThemedView";
+import { StartRating } from "./components/StartRating";
 
 const stringToArray = (input: string | string[]): string[] => {
   return typeof input === "string" ? [input] : input;

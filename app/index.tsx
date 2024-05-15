@@ -6,7 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { sizes } from "@/constants/metrics";
 import { Ionicons } from "@expo/vector-icons";
 import { hp, wp } from "@/utils/dimensions";
-import { ThemedText } from "@/components/ThemedText";
+import { ThemedText } from "@/components/Common/ThemedText";
 import { Colors, theme } from "@/constants/Colors";
 
 export default function RootScreen() {

@@ -7,7 +7,7 @@ import Animated, {
   useScrollViewOffset,
 } from "react-native-reanimated";
 
-import { ThemedView } from "@/components/ThemedView";
+import { ThemedView } from "@/components/Common/ThemedView";
 import { sizes } from "@/constants/metrics";
 import { LinearGradient } from "expo-linear-gradient";
 import { theme } from "@/constants/Colors";

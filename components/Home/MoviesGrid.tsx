@@ -3,15 +3,14 @@ import {
   HEIGHT_IMAGE_CARD,
   sizes,
 } from "@/constants/metrics";
-import { useGetMovies } from "@/hooks/useGetMovies";
 import { MasonryFlashList } from "@shopify/flash-list";
-import { MovieCard } from "./MovieCard";
 import { Movie } from "@/types/movie";
-import { ThemedText } from "./ThemedText";
+import { ThemedText } from "../Common/ThemedText";
 import { StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
 import { hp } from "@/utils/dimensions";
 import { theme } from "@/constants/Colors";
+import { MovieCard } from "./MovieCard";
 
 type Props = {
   movies: Movie[];

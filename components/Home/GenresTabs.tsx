@@ -2,7 +2,7 @@ import { sizes } from "@/constants/metrics";
 import { useGetMovies } from "@/hooks/useGetMovies";
 import { FlashList } from "@shopify/flash-list";
 import { StyleSheet, View } from "react-native";
-import { TabItem } from "./TabItem";
+import { TabItem } from "../Common/TabItem";
 
 type Props = {
   onPress: (genre: string) => void;

@@ -6,10 +6,10 @@ import { Image } from "expo-image";
 import { useGetMoviesQuery } from "@/hooks/useGetMoviesQuery";
 import { useCallback, useRef } from "react";
 import { ANIMATION_IMAGE_DEFAULT, sizes } from "@/constants/metrics";
-import { MoviesGrid } from "@/components/MoviesGrid";
 import { theme } from "@/constants/Colors";
 import { hp, wp } from "@/utils/dimensions";
 import { Ionicons } from "@expo/vector-icons";
+import { MoviesGrid } from "@/components/Home/MoviesGrid";
 
 export default function SearchScreen() {
   const searchInputRef = useRef<TextInput>(null);

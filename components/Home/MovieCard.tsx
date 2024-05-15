@@ -6,10 +6,10 @@ import {
 import { Movie } from "@/types/movie";
 import { Image } from "expo-image";
 import { Pressable, StyleSheet, View } from "react-native";
-import { ThemedText } from "./ThemedText";
 import { router } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { theme } from "@/constants/Colors";
+import { ThemedText } from "../Common/ThemedText";
 
 export const MovieCard = ({ poster, title, slug, imdb_rating }: Movie) => {
   return (

@@ -2,9 +2,8 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { StyleSheet } from "react-native";
 
 import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { View } from "react-native-reanimated/lib/typescript/Animated";
-import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/Common/ThemedView";
+import { ThemedText } from "@/components/Common/ThemedText";
 
 export default function FavsScreen() {
   return (
