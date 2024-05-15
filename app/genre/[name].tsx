@@ -14,12 +14,20 @@ export default function GenreScreen() {
   const currentMovies = moviesByGenre[name ?? "Action"];
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.gray }}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: theme.colors.gray,
+        position: "relative",
+      }}
+    >
       <View style={{ position: "relative" }}>
         <GoBack
           style={{
             alignSelf: "flex-start",
-            marginLeft: sizes.level_4,
+            zIndex: 10,
+            marginBottom: -16,
+            marginLeft: 16,
           }}
         />
         <ThemedText

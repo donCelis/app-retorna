@@ -49,7 +49,16 @@ export const MovieCard = ({ poster, title, slug, imdb_rating }: Movie) => {
 
 const styles = StyleSheet.create({
   container: { padding: sizes.level_3 },
-  poster: { position: "relative" },
+  poster: {
+    position: "relative",
+    /* IOS */
+    shadowColor: theme.colors.neutral(0.5),
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    /* Android */
+    elevation: 4,
+  },
   posterImage: {
     height: HEIGHT_IMAGE_CARD,
     width: "100%",
