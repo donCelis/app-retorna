@@ -1,0 +1,15 @@
+export const images = [
+  require("@/assets/images/genres/action.jpg"),
+  require("@/assets/images/genres/adventure.jpg"),
+  require("@/assets/images/genres/animation.jpg"),
+  require("@/assets/images/genres/bio.jpg"),
+  require("@/assets/images/genres/crime.jpg"),
+  require("@/assets/images/genres/drama.jpg"),
+  require("@/assets/images/genres/family.jpg"),
+  require("@/assets/images/genres/history.jpg"),
+  require("@/assets/images/genres/mystery.jpg"),
+  require("@/assets/images/genres/romance.jpg"),
+  require("@/assets/images/genres/sci-fi.jpg"),
+  require("@/assets/images/genres/thriller.jpg"),
+  require("@/assets/images/genres/war.jpg"),
+];

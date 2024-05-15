@@ -1,5 +1,9 @@
 import { useFonts } from "expo-font";
-import { Stack, useNavigationContainerRef } from "expo-router";
+import {
+  Stack,
+  useLocalSearchParams,
+  useNavigationContainerRef,
+} from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
@@ -13,6 +17,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const navigationRef = useNavigationContainerRef();
+  const params = useLocalSearchParams();
 
   if (process.env.NODE_ENV === "development") {
     useReactNavigationDevTools(navigationRef);
@@ -32,6 +37,8 @@ export default function RootLayout() {
     return null;
   }
 
+  console.log(params);
+
   return (
     <QueryClientProvider client={queryClient}>
       <GestureHandlerRootView style={{ flex: 1 }}>
@@ -40,6 +47,7 @@ export default function RootLayout() {
             <Stack.Screen name="index" />
             <Stack.Screen name="home" />
             <Stack.Screen name="movie/[id]" />
+            <Stack.Screen name="genre/[name]" />
             <Stack.Screen name="+not-found" />
           </Stack>
         </SafeAreaProvider>
