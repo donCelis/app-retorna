@@ -8,20 +8,23 @@
       "distribution": "internal",
       "env": {
         "EXPO_PUBLIC_API_URL": "https://wookie.codesubmit.io",
-        "EXPO_PUBLIC_AUTH": "Bearer Wookie2019"
+        "EXPO_PUBLIC_AUTH": "Bearer Wookie2019",
+        "APP_ENV": "development"
       }
     },
     "preview": {
       "distribution": "internal",
       "env": {
         "EXPO_PUBLIC_API_URL": "https://wookie.codesubmit.io",
-        "EXPO_PUBLIC_AUTH": "Bearer Wookie2019"
+        "EXPO_PUBLIC_AUTH": "Bearer Wookie2019",
+        "APP_ENV": "preview"
       }
     },
     "production": {
       "env": {
         "EXPO_PUBLIC_API_URL": "https://wookie.codesubmit.io",
-        "EXPO_PUBLIC_AUTH": "Bearer Wookie2019"
+        "EXPO_PUBLIC_AUTH": "Bearer Wookie2019",
+        "APP_ENV": "production"
       }
     }
   },
