@@ -12,4 +12,5 @@ web-build/
 .idea
 # macOS
 .DS_Store
-
+android/
+ios/
