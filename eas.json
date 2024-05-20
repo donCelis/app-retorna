@@ -14,6 +14,9 @@
     },
     "preview": {
       "distribution": "internal",
+      "android": {
+        "image": "auto"
+      },
       "env": {
         "EXPO_PUBLIC_API_URL": "https://wookie.codesubmit.io",
         "EXPO_PUBLIC_AUTH": "Bearer Wookie2019",
