@@ -6,6 +6,7 @@
     "development": {
       "developmentClient": true,
       "distribution": "internal",
+      "image": "ubuntu-latest",
       "env": {
         "EXPO_PUBLIC_API_URL": "https://wookie.codesubmit.io",
         "EXPO_PUBLIC_AUTH": "Bearer Wookie2019",
@@ -14,6 +15,7 @@
     },
     "preview": {
       "distribution": "internal",
+      "image": "ubuntu-latest",
       "env": {
         "EXPO_PUBLIC_API_URL": "https://wookie.codesubmit.io",
         "EXPO_PUBLIC_AUTH": "Bearer Wookie2019",
@@ -21,6 +23,8 @@
       }
     },
     "production": {
+      "distribution": "store",
+      "image": "ubuntu-latest",
       "env": {
         "EXPO_PUBLIC_API_URL": "https://wookie.codesubmit.io",
         "EXPO_PUBLIC_AUTH": "Bearer Wookie2019",
