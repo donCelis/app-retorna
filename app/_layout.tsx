@@ -1,9 +1,5 @@
 import { useFonts } from "expo-font";
-import {
-  Stack,
-  useLocalSearchParams,
-  useNavigationContainerRef,
-} from "expo-router";
+import { Stack, useNavigationContainerRef } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
@@ -17,7 +13,6 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const navigationRef = useNavigationContainerRef();
-  const params = useLocalSearchParams();
 
   if (process.env.NODE_ENV === "development") {
     useReactNavigationDevTools(navigationRef);
@@ -36,8 +31,6 @@ export default function RootLayout() {
   if (!loaded) {
     return null;
   }
-
-  console.log(params);
 
   return (
     <QueryClientProvider client={queryClient}>
