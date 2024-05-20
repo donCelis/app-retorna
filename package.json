@@ -10,8 +10,10 @@
     "ios": "expo run:ios",
     "test": "jest --watchAll",
     "lint": "expo lint",
-    "build:preview": "eas build --profile preview --platform android",
-    "prebuild": "expo prebuild"
+    "prebuild": "expo prebuild",
+    "android:dev": "expo run:android --variant debug",
+    "android:staging": "expo run:android --variant release",
+    "android:eas-dev": "eas build --profile preview --platform android"
   },
   "jest": {
     "preset": "jest-expo"

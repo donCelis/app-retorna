@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Wookie Movies",
-    "slug": "wookie-movies",
+    "slug": "wookieMovies",
     "scheme": "wookie-movies",
     "version": "1.0.0",
     "orientation": "portrait",
