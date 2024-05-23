@@ -24,3 +24,7 @@ export function calculateStars(rating: number): StarRating {
     emptyStars,
   };
 }
+
+export const stringToArray = (input: string | string[]): string[] => {
+  return typeof input === "string" ? [input] : input;
+};
