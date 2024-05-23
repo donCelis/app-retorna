@@ -25,8 +25,8 @@ export default function SearchScreen() {
     <View style={{ flex: 1 }}>
       <SearchBar stateQuery={stateQuery} handleQuery={handleQuery} />
       <ScrollView showsVerticalScrollIndicator={false}>
-        <View>{!isLoading && <MoviesGrid movies={moviesByQuery} />}</View>
         <View style={styles.container}>
+          {!isLoading && <MoviesGrid movies={moviesByQuery} />}
           <MasonryFlashList
             data={combinedArray}
             numColumns={2}

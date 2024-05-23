@@ -10,7 +10,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function GenreScreen() {
   const { name } = useLocalSearchParams<{ name: string }>();
-  const { moviesByGenre, isLoading, hasMovies } = useGetMovies();
+  const { moviesByGenre, isLoading, hasMovies, isRefetching, refetch } =
+    useGetMovies();
   const currentMovies = moviesByGenre[name ?? "Action"];
 
   return (
@@ -40,7 +41,13 @@ export default function GenreScreen() {
           {name}
         </ThemedText>
       </View>
-      {!isLoading && hasMovies && <MoviesGrid movies={currentMovies} />}
+      {!isLoading && hasMovies && (
+        <MoviesGrid
+          movies={currentMovies}
+          refreshing={isRefetching}
+          onRefresh={refetch}
+        />
+      )}
     </SafeAreaView>
   );
 }

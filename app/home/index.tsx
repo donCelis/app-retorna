@@ -1,6 +1,5 @@
 import { StyleSheet, View } from "react-native";
 
-import { ScrollView, RefreshControl } from "react-native-gesture-handler";
 import { useGetMovies } from "@/hooks/useGetMovies";
 import { useState } from "react";
 import { theme } from "@/constants/Colors";
@@ -8,17 +7,14 @@ import { ThemedText } from "@/components/Common/ThemedText";
 import { sizes } from "@/constants/metrics";
 import { MoviesGrid } from "@/components/Home/MoviesGrid";
 import { GenresTabs } from "@/components/Home/GenresTabs";
+import { useCurrentTab } from "@/hooks/useCurrenTab";
 
 export default function HomeScreen() {
   const { isLoading, hasMovies, moviesByGenre, isRefetching, refetch } =
     useGetMovies();
-  const [currentTab, setCurrentTab] = useState("Action");
+  const { currentTab, handleCurrentTab } = useCurrentTab();
 
   const currentMovies = moviesByGenre[currentTab];
-
-  const handleCurrentTab = (genre: string) => {
-    setCurrentTab(genre);
-  };
 
   return (
     <View style={styles.container}>
@@ -26,16 +22,15 @@ export default function HomeScreen() {
         Movies
       </ThemedText>
       {!isLoading && hasMovies && (
-        <GenresTabs currentTab={currentTab} onPress={handleCurrentTab} />
+        <>
+          <GenresTabs currentTab={currentTab} onPress={handleCurrentTab} />
+          <MoviesGrid
+            movies={currentMovies}
+            refreshing={isRefetching}
+            onRefresh={refetch}
+          />
+        </>
       )}
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        refreshControl={
-          <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
-        }
-      >
-        {!isLoading && hasMovies && <MoviesGrid movies={currentMovies} />}
-      </ScrollView>
     </View>
   );
 }

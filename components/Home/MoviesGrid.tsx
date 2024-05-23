@@ -1,56 +1,39 @@
-import {
-  ANIMATION_IMAGE_DEFAULT,
-  HEIGHT_IMAGE_CARD,
-  sizes,
-} from "@/constants/metrics";
+import { HEIGHT_IMAGE_CARD, sizes } from "@/constants/metrics";
 import { MasonryFlashList } from "@shopify/flash-list";
 import { Movie } from "@/types/movie";
 import { ThemedText } from "../Common/ThemedText";
-import { StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
-import { hp } from "@/utils/dimensions";
+import { StyleSheet } from "react-native";
 import { theme } from "@/constants/Colors";
 import { MovieCard } from "./MovieCard";
 
 type Props = {
   movies: Movie[];
+  refreshing?: boolean;
+  onRefresh?: () => void;
 };
 
-export const MoviesGrid = ({ movies }: Props) => {
+export const MoviesGrid = ({ movies, refreshing, onRefresh }: Props) => {
   return (
     <MasonryFlashList
       numColumns={2}
+      refreshing={refreshing}
+      onRefresh={onRefresh}
+      showsVerticalScrollIndicator={false}
       data={movies}
       renderItem={({ item }) => <MovieCard {...item} />}
       estimatedItemSize={HEIGHT_IMAGE_CARD}
       keyExtractor={(item) => item.id}
       contentContainerStyle={styles.listContainer}
       ListEmptyComponent={() => (
-        <View
+        <ThemedText
+          type="subtitle"
           style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
+            color: theme.colors.neutral(0.8),
+            textAlign: "center",
           }}
         >
-          <>
-            <Image
-              style={{ width: "100%", height: hp(45) }}
-              source={require("@/assets/images/search.svg")}
-              contentFit="contain"
-              transition={ANIMATION_IMAGE_DEFAULT}
-            />
-            <ThemedText
-              type="subtitle"
-              style={{
-                marginTop: sizes.level_3,
-                color: theme.colors.neutral(0.8),
-              }}
-            >
-              Enjoys watching movies.
-            </ThemedText>
-          </>
-        </View>
+          Enjoys watching movies.
+        </ThemedText>
       )}
     />
   );
