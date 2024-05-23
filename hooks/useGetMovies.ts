@@ -4,7 +4,7 @@ import { Movie } from "@/types/movie";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetMovies = () => {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch, isRefetching } = useQuery({
     queryKey: ["movies"],
     queryFn: getMovies,
   });
@@ -13,5 +13,5 @@ export const useGetMovies = () => {
   const hasMovies = !!data?.movies?.length;
   const { grouped: moviesByGenre, genres } = groupMoviesByGenre(movies);
 
-  return { isLoading, hasMovies, moviesByGenre, genres };
+  return { isLoading, hasMovies, moviesByGenre, genres, refetch, isRefetching };
 };
