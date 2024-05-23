@@ -13,13 +13,9 @@ import { ThemedText } from "../Common/ThemedText";
 import { ThemedView } from "../Common/ThemedView";
 import { StartRating } from "./components/StartRating";
 import { GoBack } from "../Common/GoBack";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { stringToArray } from "@/scripts";
 
-const stringToArray = (input: string | string[]): string[] => {
-  return typeof input === "string" ? [input] : input;
-};
-
-export const MovieById = ({ movie }: { movie: Movie | undefined }) => {
+export const MovieById = ({ movie }: { movie?: Movie }) => {
   if (!movie) return null;
 
   return (

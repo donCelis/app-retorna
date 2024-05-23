@@ -5,9 +5,9 @@ import { useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function MovieScreen() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { slug } = useLocalSearchParams<{ slug: string }>();
 
-  const { movie, isLoading, hasMovie } = useGetMovieById(id);
+  const { movie, isLoading, hasMovie } = useGetMovieById({ slug });
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: theme.colors.gray }}>

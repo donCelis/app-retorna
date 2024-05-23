@@ -26,9 +26,7 @@ type GetMovie = {
   msg?: string;
 };
 
-export const getMovieById = async (
-  id: string | undefined
-): Promise<GetMovie> => {
+export const getMovieById = async (id?: string): Promise<GetMovie> => {
   try {
     const res = await axios.get(`/movies/${id ?? ""}`);
     const { data } = res;

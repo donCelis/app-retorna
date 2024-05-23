@@ -16,8 +16,8 @@ export const MovieCard = ({ poster, title, slug, imdb_rating }: Movie) => {
     <Pressable
       onPress={() =>
         router.push({
-          pathname: "movie/[id]",
-          params: { id: slug },
+          pathname: "movie/[slug]",
+          params: { slug },
         })
       }
       style={styles.container}
