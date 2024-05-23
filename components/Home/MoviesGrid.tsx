@@ -5,6 +5,7 @@ import { ThemedText } from "../Common/ThemedText";
 import { StyleSheet } from "react-native";
 import { theme } from "@/constants/Colors";
 import { MovieCard } from "./MovieCard";
+import { RefreshControl } from "react-native-gesture-handler";
 
 type Props = {
   movies: Movie[];
@@ -16,8 +17,13 @@ export const MoviesGrid = ({ movies, refreshing, onRefresh }: Props) => {
   return (
     <MasonryFlashList
       numColumns={2}
-      refreshing={refreshing}
-      onRefresh={onRefresh}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing ?? false}
+          tintColor={theme.colors.neutral(0.8)}
+          onRefresh={onRefresh && onRefresh}
+        />
+      }
       showsVerticalScrollIndicator={false}
       data={movies}
       renderItem={({ item }) => <MovieCard {...item} />}

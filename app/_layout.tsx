@@ -13,10 +13,7 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const navigationRef = useNavigationContainerRef();
-
-  if (process.env.NODE_ENV === "development") {
-    useReactNavigationDevTools(navigationRef);
-  }
+  useReactNavigationDevTools(navigationRef);
 
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),

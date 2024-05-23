@@ -3,12 +3,12 @@ import { Tabs } from "expo-router";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import { theme } from "@/constants/Colors";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
+import { AreaView } from "@/components/Common/AreaView";
 
 export default function TabLayout() {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <AreaView>
       <StatusBar animated style="dark" />
       <Tabs
         screenOptions={{
@@ -41,6 +41,18 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
+          name="genres"
+          options={{
+            tabBarLabel: "Genres",
+            tabBarIcon: ({ color, focused }) => (
+              <TabBarIcon
+                name={focused ? "albums" : "albums-outline"}
+                color={color}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
           name="favs"
           options={{
             tabBarLabel: "Favorites",
@@ -53,6 +65,6 @@ export default function TabLayout() {
           }}
         />
       </Tabs>
-    </SafeAreaView>
+    </AreaView>
   );
 }

@@ -18,7 +18,7 @@ type Props = {
 export const GenreCard = ({ genre, image }: Props) => {
   return (
     <Pressable
-      style={{ padding: sizes.level_2 }}
+      style={{ padding: sizes.level_3 }}
       onPress={() =>
         router.push({
           pathname: "genre/[name]",

@@ -1,43 +1,23 @@
+import { AreaView } from "@/components/Common/AreaView";
 import { GoBack } from "@/components/Common/GoBack";
 import { ThemedText } from "@/components/Common/ThemedText";
 import { MoviesGrid } from "@/components/Home/MoviesGrid";
-import { theme } from "@/constants/Colors";
 import { sizes } from "@/constants/metrics";
 import { useGetMovies } from "@/hooks/useGetMovies";
 import { useLocalSearchParams } from "expo-router";
-import { View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, View } from "react-native";
 
 export default function GenreScreen() {
   const { name } = useLocalSearchParams<{ name: string }>();
   const { moviesByGenre, isLoading, hasMovies, isRefetching, refetch } =
-    useGetMovies();
+    useGetMovies("genres");
   const currentMovies = moviesByGenre[name ?? "Action"];
 
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        backgroundColor: theme.colors.gray,
-        position: "relative",
-      }}
-    >
+    <AreaView>
       <View style={{ position: "relative" }}>
-        <GoBack
-          style={{
-            alignSelf: "flex-start",
-            zIndex: 10,
-            marginBottom: -16,
-            marginLeft: 16,
-          }}
-        />
-        <ThemedText
-          type="subtitle"
-          style={{
-            textAlign: "center",
-            paddingBottom: sizes.level_3,
-          }}
-        >
+        <GoBack style={styles.back} />
+        <ThemedText type="subtitle" style={styles.title}>
           {name}
         </ThemedText>
       </View>
@@ -48,6 +28,20 @@ export default function GenreScreen() {
           onRefresh={refetch}
         />
       )}
-    </SafeAreaView>
+    </AreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    textAlign: "center",
+    paddingVertical: sizes.level_3,
+  },
+  back: {
+    zIndex: 10,
+    position: "absolute",
+    top: 0,
+    left: sizes.level_4,
+    marginTop: sizes.level_1,
+  },
+});

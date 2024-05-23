@@ -2,7 +2,7 @@ import { theme } from "@/constants/Colors";
 import { sizes } from "@/constants/metrics";
 import { Ionicons } from "@expo/vector-icons";
 import { debounce } from "lodash";
-import { useCallback, useRef } from "react";
+import { useRef } from "react";
 import { Pressable, StyleSheet, TextInput, View } from "react-native";
 
 type Props = {
@@ -12,7 +12,8 @@ type Props = {
 
 export const SearchBar = ({ stateQuery, handleQuery }: Props) => {
   const searchInputRef = useRef<TextInput>(null);
-  const handleTextDebounce = useCallback(debounce(handleQuery, 500), []);
+  const handleTextDebounce = debounce(handleQuery, 500);
+
   return (
     <View style={styles.searchBar}>
       <View style={styles.searchIcon}>
