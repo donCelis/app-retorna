@@ -5,12 +5,18 @@ import { MoviesByGenre } from "@/types/movie";
 import { StyleSheet } from "react-native";
 import { sizes } from "@/constants/metrics";
 import { GenresLoader } from "./GenresLoader";
+import { RefreshControl } from "react-native-gesture-handler";
+import { theme } from "@/constants/Colors";
 
 export const GenresGrid = ({
   genres,
+  refreshing,
+  onRefresh,
   isLoading,
 }: {
   genres: MoviesByGenre["genres"];
+  refreshing?: boolean;
+  onRefresh?: () => void;
   isLoading?: boolean;
 }) => {
   const combinedArray = images.map((image, index) => {
@@ -25,6 +31,13 @@ export const GenresGrid = ({
     <MasonryFlashList
       data={combinedArray}
       numColumns={2}
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing ?? false}
+          tintColor={theme.colors.neutral(0.8)}
+          onRefresh={onRefresh}
+        />
+      }
       renderItem={({ item }) => <GenreCard {...item} />}
       estimatedItemSize={100}
       keyExtractor={(item) => item.genre}
