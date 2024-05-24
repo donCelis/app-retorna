@@ -16,7 +16,7 @@ export const GenresLoader = () => {
           <View style={styles.cover} />
         </ThemedView>
       )}
-      estimatedItemSize={175}
+      estimatedItemSize={HEIGHT_IMAGE_CARD / 2.5}
       keyExtractor={(item) => item}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ padding: sizes.level_2, paddingTop: 0 }}

@@ -1,10 +1,10 @@
 import { MasonryFlashList } from "@shopify/flash-list";
-import { GenreCard } from "../Search/GenreCard";
+import { GenreCard } from "../Cards/GenreCard";
 import { images } from "@/constants/images";
 import { MoviesByGenre } from "@/types/movie";
 import { StyleSheet } from "react-native";
-import { sizes } from "@/constants/metrics";
-import { GenresLoader } from "./GenresLoader";
+import { HEIGHT_IMAGE_CARD, sizes } from "@/constants/metrics";
+import { GenresLoader } from "../Loaders/GenresLoader";
 import { RefreshControl } from "react-native-gesture-handler";
 import { theme } from "@/constants/Colors";
 
@@ -39,7 +39,7 @@ export const GenresGrid = ({
         />
       }
       renderItem={({ item }) => <GenreCard {...item} />}
-      estimatedItemSize={100}
+      estimatedItemSize={HEIGHT_IMAGE_CARD / 2.5}
       keyExtractor={(item) => item.genre}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.listContainer}

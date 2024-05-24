@@ -8,7 +8,7 @@ import {
 } from "@/constants/metrics";
 import { getYear } from "date-fns";
 import { theme } from "@/constants/Colors";
-import ParallaxScrollView from "../ParallaxScrollView";
+import ParallaxScrollView from "../Common/ParallaxScrollView";
 import { ThemedText } from "../Common/ThemedText";
 import { ThemedView } from "../Common/ThemedView";
 import { StartRating } from "./components/StartRating";

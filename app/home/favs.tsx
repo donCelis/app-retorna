@@ -1,7 +1,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Pressable, StyleSheet } from "react-native";
 
-import ParallaxScrollView from "@/components/ParallaxScrollView";
+import ParallaxScrollView from "@/components/Common/ParallaxScrollView";
 import { ThemedView } from "@/components/Common/ThemedView";
 import { ThemedText } from "@/components/Common/ThemedText";
 import { theme } from "@/constants/Colors";

@@ -4,7 +4,7 @@ import { Movie } from "@/types/movie";
 import { ThemedText } from "../Common/ThemedText";
 import { StyleSheet } from "react-native";
 import { theme } from "@/constants/Colors";
-import { MovieCard } from "./MovieCard";
+import { MovieCard } from "../Cards/MovieCard";
 import { RefreshControl } from "react-native-gesture-handler";
 import { MoviesLoader } from "../Loaders/MoviesLoader";
 
