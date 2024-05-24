@@ -48,7 +48,7 @@ export const MovieById = ({ movie }: { movie?: Movie }) => {
             </ThemedText>
           </View>
         </View>
-        <ThemedView style={{ ...styles.section, gap: sizes.level_4 }}>
+        <ThemedView style={[styles.section, { gap: sizes.level_4 }]}>
           <ThemedText>
             <ThemedText type="defaultSemiBold">Year: </ThemedText>
             {getYear(movie.released_on)}

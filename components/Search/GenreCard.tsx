@@ -28,10 +28,7 @@ export const GenreCard = ({ genre, image }: Props) => {
     >
       <View style={styles.container}>
         <Image
-          style={{
-            height: HEIGHT_IMAGE_CARD / 2.5,
-            width: "100%",
-          }}
+          style={styles.image}
           source={image}
           transition={ANIMATION_IMAGE_DEFAULT}
           contentFit="cover"
@@ -42,16 +39,7 @@ export const GenreCard = ({ genre, image }: Props) => {
           start={{ x: 0.5, y: 0 }}
           end={{ x: 0.5, y: 0.5 }}
         />
-        <ThemedText
-          style={{
-            color: theme.colors.white,
-            position: "absolute",
-            bottom: sizes.level_3,
-            left: sizes.level_3,
-          }}
-        >
-          {genre}
-        </ThemedText>
+        <ThemedText style={styles.title}>{genre}</ThemedText>
       </View>
     </Pressable>
   );
@@ -69,5 +57,15 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     left: 0,
+  },
+  image: {
+    height: HEIGHT_IMAGE_CARD / 2.5,
+    width: "100%",
+  },
+  title: {
+    color: theme.colors.white,
+    position: "absolute",
+    bottom: sizes.level_3,
+    left: sizes.level_3,
   },
 });
