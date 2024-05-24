@@ -30,7 +30,7 @@ export const MoviesGrid = ({
         <RefreshControl
           refreshing={refreshing ?? false}
           tintColor={theme.colors.neutral(0.8)}
-          onRefresh={onRefresh && onRefresh}
+          onRefresh={onRefresh}
         />
       }
       showsVerticalScrollIndicator={false}

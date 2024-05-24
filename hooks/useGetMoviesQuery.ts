@@ -14,7 +14,8 @@ export const useGetMoviesQuery = () => {
 
   const handleQuery = (query: string, callback?: () => void) => {
     setStateQuery(query);
-    callback && callback();
+    if (!callback) return;
+    callback();
   };
 
   const moviesByQuery = (data?.movies ?? []) as Movie[];
