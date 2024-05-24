@@ -6,15 +6,24 @@ import { StyleSheet } from "react-native";
 import { theme } from "@/constants/Colors";
 import { MovieCard } from "./MovieCard";
 import { RefreshControl } from "react-native-gesture-handler";
+import { MoviesLoader } from "../Loaders/MoviesLoader";
 
 type Props = {
   movies: Movie[];
   refreshing?: boolean;
   onRefresh?: () => void;
+  isLoading?: boolean;
 };
 
-export const MoviesGrid = ({ movies, refreshing, onRefresh }: Props) => {
-  return (
+export const MoviesGrid = ({
+  movies,
+  refreshing,
+  onRefresh,
+  isLoading = false,
+}: Props) => {
+  return isLoading ? (
+    <MoviesLoader />
+  ) : (
     <MasonryFlashList
       numColumns={2}
       refreshControl={
@@ -31,14 +40,8 @@ export const MoviesGrid = ({ movies, refreshing, onRefresh }: Props) => {
       keyExtractor={(item) => item.id}
       contentContainerStyle={styles.listContainer}
       ListEmptyComponent={() => (
-        <ThemedText
-          type="subtitle"
-          style={{
-            color: theme.colors.neutral(0.8),
-            textAlign: "center",
-          }}
-        >
-          Enjoys watching movies.
+        <ThemedText type="subtitle" style={styles.title}>
+          Enjoys watching movies
         </ThemedText>
       )}
     />
@@ -49,5 +52,9 @@ const styles = StyleSheet.create({
   listContainer: {
     padding: sizes.level_2,
     paddingTop: 0,
+  },
+  title: {
+    color: theme.colors.neutral(0.8),
+    textAlign: "center",
   },
 });

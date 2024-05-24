@@ -8,7 +8,7 @@ import { GenresTabs } from "@/components/Home/GenresTabs";
 import { useCurrentTab } from "@/hooks/useCurrenTab";
 
 export default function HomeScreen() {
-  const { isLoading, hasMovies, moviesByGenre, isRefetching, refetch, genres } =
+  const { moviesByGenre, isRefetching, refetch, genres, loader, isLoading } =
     useGetMovies("home");
   const { currentTab, handleCurrentTab } = useCurrentTab();
 
@@ -19,20 +19,18 @@ export default function HomeScreen() {
       <ThemedText type="subtitle" style={styles.title}>
         Movies
       </ThemedText>
-      {!isLoading && hasMovies && (
-        <>
-          <GenresTabs
-            genres={genres}
-            currentTab={currentTab}
-            onPress={handleCurrentTab}
-          />
-          <MoviesGrid
-            movies={currentMovies}
-            refreshing={isRefetching}
-            onRefresh={refetch}
-          />
-        </>
-      )}
+      <GenresTabs
+        genres={genres}
+        currentTab={currentTab}
+        onPress={handleCurrentTab}
+        isLoading={loader}
+      />
+      <MoviesGrid
+        isLoading={isLoading}
+        movies={currentMovies}
+        refreshing={isRefetching}
+        onRefresh={refetch}
+      />
     </View>
   );
 }

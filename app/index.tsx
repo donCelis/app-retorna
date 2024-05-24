@@ -12,7 +12,7 @@ import { Colors, theme } from "@/constants/Colors";
 export default function RootScreen() {
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar animated style="light" />
       <Image
         source={require("@/assets/images/initImage.jpg")}
         resizeMode="cover"

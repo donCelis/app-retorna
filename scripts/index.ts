@@ -28,3 +28,6 @@ export function calculateStars(rating: number): StarRating {
 export const stringToArray = (input: string | string[]): string[] => {
   return typeof input === "string" ? [input] : input;
 };
+
+export const generateArray = (length: number, word = "-"): string[] =>
+  Array.from({ length }, (_, i) => `${word}-${i + 1}`);

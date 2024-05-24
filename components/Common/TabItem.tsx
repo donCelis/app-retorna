@@ -19,14 +19,14 @@ export const TabItem = ({
   return (
     <Pressable
       onPress={() => onPress(item)}
-      style={[styles.tab, { backgroundColor }]}
+      style={[stylesTabItem.tab, { backgroundColor }]}
     >
       <ThemedText style={{ color }}>{item}</ThemedText>
     </Pressable>
   );
 };
 
-const styles = StyleSheet.create({
+const stylesTabItem = StyleSheet.create({
   tab: {
     padding: sizes.level_2,
     paddingHorizontal: sizes.level_4,

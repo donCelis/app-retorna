@@ -13,5 +13,13 @@ export const useGetMovies = (qs: string) => {
   const hasMovies = !!data?.movies?.length;
   const { grouped: moviesByGenre, genres } = groupMoviesByGenre(movies);
 
-  return { isLoading, hasMovies, moviesByGenre, genres, refetch, isRefetching };
+  return {
+    isLoading,
+    hasMovies,
+    moviesByGenre,
+    genres,
+    refetch,
+    isRefetching,
+    loader: isLoading || isRefetching,
+  };
 };

@@ -9,7 +9,7 @@ import { StyleSheet, View } from "react-native";
 
 export default function GenreScreen() {
   const { name } = useLocalSearchParams<{ name: string }>();
-  const { moviesByGenre, isLoading, hasMovies, isRefetching, refetch } =
+  const { moviesByGenre, isLoading, isRefetching, refetch } =
     useGetMovies("genres");
   const currentMovies = moviesByGenre[name ?? "Action"];
 
@@ -21,18 +21,24 @@ export default function GenreScreen() {
           {name}
         </ThemedText>
       </View>
-      {!isLoading && hasMovies && (
+      <View style={styles.container}>
         <MoviesGrid
+          isLoading={isLoading}
           movies={currentMovies}
           refreshing={isRefetching}
           onRefresh={refetch}
         />
-      )}
+      </View>
     </AreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: "100%",
+    minHeight: 3,
+  },
   title: {
     textAlign: "center",
     paddingVertical: sizes.level_3,

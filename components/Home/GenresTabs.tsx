@@ -1,19 +1,27 @@
 import { sizes } from "@/constants/metrics";
 import { FlashList } from "@shopify/flash-list";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { TabItem } from "../Common/TabItem";
 import { MoviesByGenre } from "@/types/movie";
+import { TabsLoader } from "../Loaders/TabsLoader";
+import { Divider } from "../Common/Divider";
 
 type Props = {
   onPress: (genre: string) => void;
   currentTab: string;
   genres: MoviesByGenre["genres"];
+  isLoading?: boolean;
 };
 
-const Divider = () => <View style={{ width: sizes.level_2 }} />;
-
-export const GenresTabs = ({ onPress, currentTab, genres }: Props) => {
-  return (
+export const GenresTabs = ({
+  onPress,
+  currentTab,
+  genres,
+  isLoading,
+}: Props) => {
+  return isLoading ? (
+    <TabsLoader />
+  ) : (
     <FlashList
       horizontal
       data={genres}
@@ -22,14 +30,14 @@ export const GenresTabs = ({ onPress, currentTab, genres }: Props) => {
       )}
       ItemSeparatorComponent={Divider}
       estimatedItemSize={100}
-      contentContainerStyle={styles.listContainerStyle}
+      contentContainerStyle={stylesGenresTabs.listContainerStyle}
       keyExtractor={(item) => item}
       showsHorizontalScrollIndicator={false}
     />
   );
 };
 
-const styles = StyleSheet.create({
+const stylesGenresTabs = StyleSheet.create({
   listContainerStyle: {
     padding: sizes.level_2,
     paddingHorizontal: sizes.level_4,

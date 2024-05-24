@@ -6,19 +6,15 @@ import { MoviesGrid } from "@/components/Home/MoviesGrid";
 import { SearchBar } from "@/components/Search/SearchBar";
 
 export default function SearchScreen() {
-  const {
-    moviesByQuery,
-    handleQuery,
-    isLoading,
-    stateQuery,
-  } = useGetMoviesQuery();
+  const { moviesByQuery, handleQuery, isLoading, stateQuery } =
+    useGetMoviesQuery();
 
   return (
     <View style={{ flex: 1 }}>
       <SearchBar stateQuery={stateQuery} handleQuery={handleQuery} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
-          {!isLoading && <MoviesGrid movies={moviesByQuery} />}
+          <MoviesGrid isLoading={isLoading} movies={moviesByQuery} />
         </View>
       </ScrollView>
     </View>
