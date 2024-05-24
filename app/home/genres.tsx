@@ -11,7 +11,7 @@ export default function GenresScreen() {
       <ThemedText type="subtitle" style={styles.title}>
         Genres
       </ThemedText>
-      {!isLoading && <GenresGrid genres={genres} />}
+      <GenresGrid genres={genres} isLoading={isLoading} />
     </View>
   );
 }

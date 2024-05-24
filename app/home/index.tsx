@@ -8,7 +8,7 @@ import { GenresTabs } from "@/components/Home/GenresTabs";
 import { useCurrentTab } from "@/hooks/useCurrenTab";
 
 export default function HomeScreen() {
-  const { moviesByGenre, isRefetching, refetch, genres, loader, isLoading } =
+  const { moviesByGenre, isRefetching, refetch, genres, loader } =
     useGetMovies("home");
   const { currentTab, handleCurrentTab } = useCurrentTab();
 

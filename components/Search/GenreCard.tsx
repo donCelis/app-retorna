@@ -18,7 +18,7 @@ type Props = {
 export const GenreCard = ({ genre, image }: Props) => {
   return (
     <Pressable
-      style={{ padding: sizes.level_3 }}
+      style={styles.button}
       onPress={() =>
         router.push({
           pathname: "genre/[name]",
@@ -46,6 +46,7 @@ export const GenreCard = ({ genre, image }: Props) => {
 };
 
 const styles = StyleSheet.create({
+  button: { padding: sizes.level_3 },
   container: {
     position: "relative",
     overflow: "hidden",

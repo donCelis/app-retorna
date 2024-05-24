@@ -1,13 +1,14 @@
-import { Image, Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 
 import { router } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { LinearGradient } from "expo-linear-gradient";
-import { sizes } from "@/constants/metrics";
+import { ANIMATION_IMAGE_DEFAULT, sizes } from "@/constants/metrics";
 import { Ionicons } from "@expo/vector-icons";
 import { hp, wp } from "@/utils/dimensions";
 import { ThemedText } from "@/components/Common/ThemedText";
 import { Colors, theme } from "@/constants/Colors";
+import { Image } from "expo-image";
 
 export default function RootScreen() {
   return (
@@ -15,8 +16,10 @@ export default function RootScreen() {
       <StatusBar animated style="light" />
       <Image
         source={require("@/assets/images/initImage.jpg")}
-        resizeMode="cover"
+        contentFit="cover"
         style={styles.bgImage}
+        transition={ANIMATION_IMAGE_DEFAULT}
+        priority={"high"}
       />
       <View style={styles.container}>
         <LinearGradient
@@ -33,7 +36,7 @@ export default function RootScreen() {
         <View style={styles.contentContainer}>
           <ThemedText type="title">Wookie Movies</ThemedText>
           <Pressable
-            onPress={() => router.push("home")}
+            onPress={() => router.replace("home")}
             style={styles.startButton}
           >
             <ThemedText type="defaultSemiBold" style={styles.startText}>

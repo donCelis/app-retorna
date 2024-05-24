@@ -8,11 +8,11 @@ import { Divider } from "../Common/Divider";
 import { sizes } from "@/constants/metrics";
 
 export const TabsLoader = () => {
-  const genresLoader = generateArray(6, "tabs");
+  const genresTabsLoader = generateArray(6, "tabs");
   return (
     <FlashList
       horizontal
-      data={genresLoader}
+      data={genresTabsLoader}
       renderItem={({ item }) => (
         <ThemedView style={styles.innerTab}>
           <ThemedText style={{ color: "transparent" }}>{item}</ThemedText>

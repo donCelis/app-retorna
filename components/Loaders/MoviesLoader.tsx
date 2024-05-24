@@ -7,11 +7,11 @@ import { HEIGHT_IMAGE_CARD, sizes } from "@/constants/metrics";
 import { theme } from "@/constants/Colors";
 
 export const MoviesLoader = () => {
-  const genresLoader = generateArray(6, "movies");
+  const moviesLoader = generateArray(6, "movies");
   return (
     <MasonryFlashList
       numColumns={2}
-      data={genresLoader}
+      data={moviesLoader}
       showsVerticalScrollIndicator={false}
       renderItem={({ item }) => (
         <ThemedView style={styles.container}>
