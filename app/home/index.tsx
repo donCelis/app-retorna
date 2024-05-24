@@ -26,7 +26,7 @@ export default function HomeScreen() {
         isLoading={loader}
       />
       <MoviesGrid
-        isLoading={isLoading}
+        isLoading={loader}
         movies={currentMovies}
         refreshing={isRefetching}
         onRefresh={refetch}
